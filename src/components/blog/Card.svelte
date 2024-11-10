@@ -3,34 +3,36 @@
 	import { formatDate } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import type { Post } from '$lib/sanity/queries';
+	import { base } from '$app/paths';
 
 	export let post: Post;
 </script>
-<div>
-<a class="card" href={`/blog/post/${post.slug.current}`}>
-	{#if post.mainImage}
-		<img
-			class="card__cover"
-			src={urlFor(post.mainImage).width(500).height(300).url()}
-			alt="Cover image for {post.title}"
-		/>
-	{:else}
-		<div class="card__cover--none" />
-	{/if}
 
-	<div class="card__container">
-		<h3 class="card__title">
-			{post.title}
-		</h3>
-		{#if post.excerpt}
-			<p class="card__excerpt">{post.excerpt}</p>
+<div>
+	<a class="card" href={`${base}/blog/post/${post.slug.current}`}>
+		{#if post.mainImage}
+			<img
+				class="card__cover"
+				src={urlFor(post.mainImage).width(500).height(300).url()}
+				alt="Cover image for {post.title}"
+			/>
+		{:else}
+			<div class="card__cover--none" />
 		{/if}
-		<p class="card__date">
-			{formatDate(post._createdAt)}
-		</p>
-	</div>
-</a>
-<!-- <p>
+
+		<div class="card__container">
+			<h3 class="card__title">
+				{post.title}
+			</h3>
+			{#if post.excerpt}
+				<p class="card__excerpt">{post.excerpt}</p>
+			{/if}
+			<p class="card__date">
+				{formatDate(post._createdAt)}
+			</p>
+		</div>
+	</a>
+	<!-- <p>
 	{#if post.tag?.length}
 		{#each post.tag as tag}
 			<span class="tag">{tag}  </span>

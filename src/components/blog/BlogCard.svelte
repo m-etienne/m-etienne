@@ -2,13 +2,17 @@
 	import { formatDate } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import type { Post } from '$lib/sanity/queries';
+	import { base } from '$app/paths';
 
 	export let recommendedPost: Post;
 	export let post: Post;
 </script>
 
 <div class="col-lg-4 col-sm-6 mt-3">
-	<a href={`/blog/post/${recommendedPost.slug.current}`} on:click={() => (post = recommendedPost)}>
+	<a
+		href={`${base}/blog/post/${recommendedPost.slug.current}`}
+		on:click={() => (post = recommendedPost)}
+	>
 		<div class="card border-0 rounded p-2 h-100">
 			<div class="img_blog">
 				{#if recommendedPost.mainImage}
