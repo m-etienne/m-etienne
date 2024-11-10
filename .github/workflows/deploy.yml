@@ -1,78 +1,74 @@
 ---
-name: Deploy to GitHub Pages
-
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: 'main'
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: 'pages'
-  cancel-in-progress: false
-
-env:
-  # Required - The ID of your Sanity project
-  PUBLIC_SANITY_PROJECT_ID: ${{ secrets.PUBLIC_SANITY_PROJECT_ID }}
-  # Required - The dataset of your Sanity project
-  PUBLIC_SANITY_DATASET: ${{ secrets.PUBLIC_SANITY_DATASET}}
-  # Required - The generated read token, used to fetch data on the server
-  SANITY_API_READ_TOKEN: ${{ secrets.SANITY_API_READ_TOKEN }}
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 8
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: pnpm
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build with pnpm
-        env:
-          BASE_PATH: '/${{ github.event.repository.name }}'
-        run: |
-          npm run build
-
-      - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # this should match the `pages` option in your adapter-static options
-          path: 'build/'
-
-  # Deployment job
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  name: Deploy to GitHub Pages
+  
+  on:
+    # Runs on pushes targeting the default branch
+    push:
+      branches: 'main'
+  
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+  
+  # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
+  
+  # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+  # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+  concurrency:
+    group: 'pages'
+    cancel-in-progress: false
+  
+  env:
+    # Required - The ID of your Sanity project
+    PUBLIC_SANITY_PROJECT_ID: ${{ secrets.PUBLIC_SANITY_PROJECT_ID }}
+    # Required - The dataset of your Sanity project
+    PUBLIC_SANITY_DATASET: ${{ secrets.PUBLIC_SANITY_DATASET}}
+    # Required - The generated read token, used to fetch data on the server
+    SANITY_API_READ_TOKEN: ${{ secrets.SANITY_API_READ_TOKEN }}
+  
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+  
+        - name: Setup Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+            cache: npm
+  
+        - name: Setup Pages
+          uses: actions/configure-pages@v5
+  
+        - name: Install dependencies
+          run: npm install
+  
+        - name: Build with npm
+          env:
+            BASE_PATH: '/${{ github.event.repository.name }}'
+          run: |
+            npm run build
+  
+        - name: Upload Artifacts
+          uses: actions/upload-pages-artifact@v3
+          with:
+            # this should match the `pages` option in your adapter-static options
+            path: 'build/'
+  
+    # Deployment job
+    deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
+      steps:
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v4
+...
