@@ -8,7 +8,11 @@
 					<ul class="list-unstyled list-inline mb-0">
 						<!-- <li class="list-inline-item"><a href="#!"><i class="mdi mdi-facebook"></i></a></li> -->
 						<li class="list-inline-item">
-							<a href="www.linkedin.com/in/marjorie-etienne"><i class="mdi mdi-linkedin"></i></a>
+							<a
+								href="https://www.linkedin.com/in/marjorie-etienne"
+								target="_blank"
+								rel="noopener noreferrer"><i class="mdi mdi-linkedin"></i></a
+							>
 						</li>
 						<!-- <li class="list-inline-item"><a href="#!"><i class="mdi mdi-pinterest"></i></a></li>
                         <li class="list-inline-item"><a href="#!"><i class="mdi mdi-twitter"></i></a></li> -->
