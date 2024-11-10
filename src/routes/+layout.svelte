@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { isPreviewing, VisualEditing } from '@sanity/visual-editing/svelte';
 	import { page } from '$app/stores';
 	import LiveMode from '../layouts/LiveMode.svelte';
@@ -15,19 +16,23 @@
 </script>
 
 <svelte:head>
-	<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
+	<!-- Favicon -->
+	<!-- <link rel="icon" href="{base}/assets/images/favicon.ico" /> -->
+
+	<!-- Main Css -->
+	<link rel="stylesheet" href="{base}/assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="{base}/assets/css/materialdesignicons.min.css" />
 
 	<!-- Animate Css -->
-	<link rel="stylesheet" type="text/css" href="/assets/css/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="{base}/assets/css/animate.min.css" />
 
 	<!-- Magnific-popup -->
-	<link rel="stylesheet" type="text/css" href="/assets/css/magnific-popup.css" />
+	<link rel="stylesheet" type="text/css" href="{base}/assets/css/magnific-popup.css" />
 
 	<!-- Mobirise icons Css -->
-	<link rel="stylesheet" type="text/css" href="/assets/css/mobiriseicons.css" />
+	<link rel="stylesheet" type="text/css" href="{base}/assets/css/mobiriseicons.css" />
 
-	<link rel="stylesheet" href="/assets/css/style.css" />
+	<link rel="stylesheet" href="{base}/assets/css/style.css" />
 
 	{@html atomOneDark}
 </svelte:head>
