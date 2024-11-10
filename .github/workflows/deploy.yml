@@ -26,6 +26,8 @@ env:
   PUBLIC_SANITY_PROJECT_ID: ${{ secrets.PUBLIC_SANITY_PROJECT_ID }}
   # Required - The dataset of your Sanity project
   PUBLIC_SANITY_DATASET: ${{ secrets.PUBLIC_SANITY_DATASET}}
+  # Required - The generated read token, used to fetch data on the server
+  SANITY_API_READ_TOKEN: ${{ secrets.SANITY_API_READ_TOKEN}}
   # Optional - The Sanity API version to use
   PUBLIC_SANITY_API_VERSION: ${{ secrets.PUBLIC_SANITY_API_VERSION}}
   # Optional - The URL of your Sanity Studio
