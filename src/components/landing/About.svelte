@@ -8,7 +8,7 @@
 			<Col lg="6">
 				<div class="mt-3">
 					<img
-						src="assets/images/slopes.jpg"
+						src="assets/images/slopes.jpeg"
 						alt=""
 						class="img-fluid mx-auto d-block img-thumbnail"
 					/>
