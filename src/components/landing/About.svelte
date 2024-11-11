@@ -5,11 +5,15 @@
 <section class="section" id="about">
 	<Container>
 		<Row class="align-items-center">
-			<!-- <Col lg="6">
-                <div class="mt-3">
-                    <img src="assets/images/slopes.jpg" alt="" class="img-fluid mx-auto d-block img-thumbnail">
-                </div>
-            </Col> -->
+			<Col lg="6">
+				<div class="mt-3">
+					<img
+						src="assets/images/slopes.jpg"
+						alt=""
+						class="img-fluid mx-auto d-block img-thumbnail"
+					/>
+				</div>
+			</Col>
 			<Col lg="6">
 				<div class="mt-3">
 					<h4 class="mt-4"><span class="text-primary fw-bold">Welcome!</span></h4>
