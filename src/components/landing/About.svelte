@@ -27,6 +27,18 @@
 					<p class="text-muted mt-2">Blessings and best wishes to you and yours,</p>
 					<p class="text-muted mt-2"><em>-m.etienne</em></p>
 				</div>
+				<div>
+					<img
+						src="assets/images/comptia-security-ce-certification.png"
+						alt="security plus"
+						class="cert"
+					/>
+					<img
+						src="assets/images/comptia-network-ce-certification.1.png"
+						alt="network plus"
+						class="cert"
+					/>
+				</div>
 			</Col>
 		</Row>
 	</Container>

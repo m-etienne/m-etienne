@@ -28,7 +28,7 @@
 				<p class="card__excerpt">{post.excerpt}</p>
 			{/if}
 			<p class="card__date">
-				{formatDate(post._createdAt)}
+				{formatDate(post.publishedAt ?? post._createdAt)}
 			</p>
 		</div>
 	</a>

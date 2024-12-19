@@ -5,6 +5,7 @@ import groq from 'groq';
 export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{
   title,
 	_createdAt,
+	publishedAt,
   excerpt,
   mainImage,
   body,
@@ -64,6 +65,7 @@ export interface Qna {
 export interface Quiz {
 	_type: 'quiz';
 	_createdAt: string;
+	publishedAt: string;
 	title: string;
 	qna: Qna[];
 }
@@ -71,6 +73,7 @@ export interface Quiz {
 export interface Post {
 	_type: 'post';
 	_createdAt: string;
+	publishedAt:string;
 	title?: string;
 	slug: Slug;
 	excerpt?: string;

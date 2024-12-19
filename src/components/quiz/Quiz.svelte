@@ -84,8 +84,6 @@
 	$: questionsAnswered = answers.filter((value) => value != null).length;
 	$: progressPercentage = Math.floor((questionsAnswered / questionsLength) * 100);
 	$: canSubmitQuiz = questionsAnswered === questionsLength;
-
-	$: console.log(answers, results);
 </script>
 
 <section>

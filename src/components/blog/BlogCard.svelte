@@ -30,7 +30,9 @@
 					<h5 class="fw-bold mb-0">{recommendedPost.title}</h5>
 				</div>
 				<div class="mt-3">
-					<p class="h6 text-muted date_blog mb-0">{formatDate(recommendedPost._createdAt)}</p>
+					<p class="h6 text-muted date_blog mb-0">
+						{formatDate(recommendedPost.publishedAt ?? recommendedPost._createdAt)}
+					</p>
 					<p class="mt-3 desc_blog text-muted">{recommendedPost.excerpt}</p>
 				</div>
 			</div>
