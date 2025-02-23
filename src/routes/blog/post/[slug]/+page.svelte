@@ -41,16 +41,16 @@
 						{formatDate(post.publishedAt ?? post._createdAt)}
 					</p>
 					<!-- <p>
-								{#if post.tag?.length}
-									{#each post.tag as tag}
-										<button class="tag btn btn-primary"><a href=''>{tag.value} </a> </button>
-									{/each}
-								{/if}
-							</p>					 -->
+						{#if post.tag?.length}
+							{#each post.tag as tag}
+								<button class="tag btn btn-primary"><a href="">{tag.value} </a> </button>
+							{/each}
+						{/if}
+					</p> -->
 					{#if post.body}
 						<div>
-							<!-- Unfortunately for some reason I haven't sus'd out yet, 
-									I need both value and portableText props -->
+							<!-- Unfortunately for some reason I haven't sus'd out yet, I need both value and
+							portableText props -->
 							<PortableText
 								components={{ types: { image: Image, code: Code } }}
 								value={post.body}

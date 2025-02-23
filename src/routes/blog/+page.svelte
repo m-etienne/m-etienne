@@ -11,30 +11,32 @@
 	$: param = '';
 	let searchTerm = '';
 
-	$: filteredPosts = $q.data.filter(post => {
-			searchTerm = param || searchTerm.toLowerCase()
+	$: filteredPosts = $q.data.filter((post) => {
+		searchTerm = param || searchTerm.toLowerCase();
 
-			let searchFilteredPosts = post.title?.toLowerCase().includes(searchTerm) 
-			|| toPlainText(post.body).toLowerCase().includes(searchTerm) 
-			|| post.excerpt?.toLowerCase().includes(searchTerm) 
-		//	|| post.tag?.toString().toLowerCase().includes(searchTerm) 
-		//	|| post.tag?.map(i => i.value.toString().toLocaleLowerCase().includes(searchTerm))
+		let searchFilteredPosts =
+			post.title?.toLowerCase().includes(searchTerm) ||
+			toPlainText(post.body).toLowerCase().includes(searchTerm) ||
+			post.category?.toLowerCase().includes(searchTerm) ||
+			post.level?.toLowerCase().includes(searchTerm) ||
+			post.tag?.map((t) => t.value.toString().toLowerCase().includes(searchTerm)).includes(true);
 
-			return searchFilteredPosts
-	})
+		return searchFilteredPosts;
+	});
 </script>
 
 <!-- START BLOG HEADER -->
 <section id="home">
 	<div class="container">
 		<div class="input-group rounded mt-5 row input-center">
-			<input 
-				id="search" 
-				type="search" 
-				class="form-control rounded mt-5 mb-5" 
-				placeholder="search" 
-				aria-label="search" 
-				aria-describedby="search-addon" bind:value={searchTerm}
+			<input
+				id="search"
+				type="search"
+				class="form-control rounded mt-5 mb-5"
+				placeholder="search by title, category, level, tag, or words in a post"
+				aria-label="search"
+				aria-describedby="search-addon"
+				bind:value={searchTerm}
 			/>
 		</div>
 	</div>

@@ -90,29 +90,25 @@
 	{#if questionPointer == -1}
 		<div class="start-screen">
 			<p>
-				Quiz yourself on what you just learned!
-				<br />Questions are randomized each round.
-				<br />You can always comeback and quiz yourself again and again.
+				Questions are randomized each round.
 				<br />There are a total of {questions.length} questions for this quiz.
 			</p>
 			<p>
-				<label for="amountOfQuestions"
-					>Choose how many questions per round. The default is 10:</label
-				>
+				<label for="amountOfQuestions">Choose how many questions per round.</label>
 			</p>
-			<p>
+			<div class="d-flex justify-content-center">
 				<input
 					type="number"
 					id="amountOfQuestions"
 					name="amountOfQuestions"
-					class="form-control rounded mt-5 mb-5"
+					class="form-control rounded w-25"
 					aria-label="amountOfQuestions"
 					aria-describedby="amountOfQuestions"
 					min="10"
-					max={questions.length}
+					max={questions.length <= 25 ? questions.length : 25}
 					bind:value={amountOfQuestions}
 				/>
-			</p>
+			</div>
 			<button
 				class="btn btn-primary mt-5"
 				on:click={randomizeQuiz}
